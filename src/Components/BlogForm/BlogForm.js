@@ -12,7 +12,7 @@ const BlogForm = () => {
                 </div>
                 <div className='widget'>
                     <label>Content:</label>
-                    <textarea name='Blog-Content' type='text' placeholder='Write something'></textarea>
+                    <textarea name='Blog-Content' id='Blog-Content' type='text' placeholder='Write something'></textarea>
                 </div>
                 <button type='button'>Create</button>
             </fieldset>
