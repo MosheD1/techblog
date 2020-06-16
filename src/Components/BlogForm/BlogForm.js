@@ -8,7 +8,7 @@ const BlogForm = () => {
                 <legend>Blog</legend>
                 <div className='widget'>
                     <label htmlFor='Blog-Title'>Title:</label>
-                    <input name='Blog-Title' name='Blog-Title' type='text' placeholder='Title'></input>
+                    <input name='Blog-Title' id='Blog-Title' type='text' placeholder='Title'></input>
                 </div>
                 <div className='widget'>
                     <label>Content:</label>

@@ -5,10 +5,10 @@ const Navigation = () => {
     return (
         <nav className='navbar sticky'>
             <li>
-                <a href='#'>SignOut</a>
+                <a href='#id'>SignOut</a>
             </li>
             <li>
-                <a href='#'>Register</a>
+                <a href='#id'>Register</a>
             </li>
         </nav>
     );
