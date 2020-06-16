@@ -16,10 +16,14 @@ jobs:
       - run: echo "testing front end"
       - run: npm install
 <<<<<<< HEAD
+<<<<<<< HEAD
       - run: npm test --passWiyhNoTests
 =======
       - run: npm test --passWithNoTests
 >>>>>>> master
+=======
+      - run: npm test --passWithNoTests
+>>>>>>> a7354e471d4c4ecf7461e35d27e6f503f0b3fef9
 workflows:
   version: 2.1
   build_test:
