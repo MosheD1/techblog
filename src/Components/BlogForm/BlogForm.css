@@ -1,0 +1,48 @@
+form {
+    padding: 20px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+legend {
+    border: none;
+}
+
+label {
+    display: block;
+    padding: 15px 0;
+}
+
+input[type=text], textarea {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    line-height: 1.5rem;
+}
+
+input[type=text]:focus, textarea:focus {
+    border-color: mediumblue;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 160px;
+}
+
+.widget {
+    padding: 20px;
+    margin: 20px;
+}
+
+button {
+    margin: 0.5rem auto;
+    padding: 0.8rem;
+    background-color: lightgreen;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+}

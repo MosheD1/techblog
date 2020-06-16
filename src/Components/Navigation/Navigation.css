@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: rgba(100, 150, 200, 1);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    padding: 20px;
+    list-style: none;
+}
+
+li a {
+    font-size: 1.3rem;
+    text-decoration: none;
+}
