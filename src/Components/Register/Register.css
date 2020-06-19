@@ -1,0 +1,31 @@
+main {
+    margin: 4rem;
+}   
+
+.container {
+    margin: auto;
+    width: 600px;
+
+}
+
+.register {
+    padding: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+fieldset {
+    border: none;
+}
+
+input[type=submit] {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.8rem;
+    background-color: lightgreen;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+}

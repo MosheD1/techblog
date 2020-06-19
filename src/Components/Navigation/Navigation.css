@@ -19,4 +19,5 @@ li {
 li a {
     font-size: 1.3rem;
     text-decoration: none;
+    cursor: pointer;
 }

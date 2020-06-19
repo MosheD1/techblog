@@ -3,6 +3,9 @@ form {
     width: 600px;
     margin: auto;
     text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
 }
 
 legend {
