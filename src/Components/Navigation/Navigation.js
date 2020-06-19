@@ -1,14 +1,14 @@
 import React from 'react';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <nav className='navbar sticky'>
             <li>
-                <a href='#id'>SignOut</a>
+                <a onClick={() => props.onRouteChange('signin')}>SignOut</a>
             </li>
             <li>
-                <a href='#id'>Register</a>
+                <a onClick={() => props.onRouteChange('register')}>Register</a>
             </li>
         </nav>
     );
