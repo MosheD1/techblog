@@ -5,10 +5,10 @@ const Navigation = (props) => {
     return (
         <nav className='navbar sticky'>
             <li>
-                <a href='#' onClick={() => props.onRouteChange('signin')}>SignOut</a>
+                <a href='#id' onClick={() => props.onRouteChange('signin')}>SignOut</a>
             </li>
             <li>
-                <a href='#' onClick={() => props.onRouteChange('register')}>Register</a>
+                <a href='#id' onClick={() => props.onRouteChange('register')}>Register</a>
             </li>
         </nav>
     );
