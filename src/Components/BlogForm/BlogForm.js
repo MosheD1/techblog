@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlogForm.css'
 
-const BlogForm = () => {
+const BlogForm = ({onSubRouteChange}) => {
     return (
         <form autoComplete='off'>
             <fieldset>
@@ -14,7 +14,7 @@ const BlogForm = () => {
                     <label>Content:</label>
                     <textarea name='Blog-Content' id='Blog-Content' type='text' placeholder='Write something'></textarea>
                 </div>
-                <button type='button'>Create</button>
+                <button onClick={() => onSubRouteChange('mainPage')} type='button'>Create</button>
             </fieldset>
         </form>
     );

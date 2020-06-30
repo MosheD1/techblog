@@ -3,15 +3,37 @@ import Navigation from './Components/Navigation/Navigation';
 import BlogForm from './Components/BlogForm/BlogForm';
 import Signin from './Components/Signin/Signin';
 import Register from './Components/Register/Register';
+import BlogList from './Components/BlogList/BlogList';
+import MainPage from './Components/MainPage/MainPage';
 
 import './App.css';
 
+const blogs = [
+  {
+    title: 'The new world'
+  },
+  {
+    title: 'The new dicovery'
+  },
+  {
+    title: 'The idea'
+  },
+  {
+    title: 'What Next'
+  },
+  {
+    title: 'In 10 Years'
+  }
+];
+
 const initialState = {
   route: 'signin',
+  subRoute: 'mainPage',
   user: {
     email: ''
   }
 }
+
 
 class App extends Component {
   constructor() {
@@ -29,13 +51,18 @@ class App extends Component {
     this.setState({route: route});
   }
 
+  onSubRouteChange = (subRoute) => {
+    this.setState({subRoute: subRoute});
+  }
+
   render() {
     return (
       <div>
         <Navigation onRouteChange={this.onRouteChange}/>
-        <h1>{this.state.user.email}</h1>
         {this.state.route === 'home'
-          ? <BlogForm onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
+          ? (this.state.subRoute == 'mainPage' 
+              ? <MainPage onSubRouteChange={this.onSubRouteChange} name={this.state.user.email} blogs={blogs} /> 
+              : <BlogForm onSubRouteChange={this.onSubRouteChange}/>)
           : (this.state.route === 'signin'
               ? <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
               : <Register onRouteChange={this.onRouteChange}/> 
