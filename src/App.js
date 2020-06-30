@@ -3,7 +3,6 @@ import Navigation from './Components/Navigation/Navigation';
 import BlogForm from './Components/BlogForm/BlogForm';
 import Signin from './Components/Signin/Signin';
 import Register from './Components/Register/Register';
-import BlogList from './Components/BlogList/BlogList';
 import MainPage from './Components/MainPage/MainPage';
 
 import './App.css';
@@ -60,7 +59,7 @@ class App extends Component {
       <div>
         <Navigation onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
-          ? (this.state.subRoute == 'mainPage' 
+          ? (this.state.subRoute === 'mainPage' 
               ? <MainPage onSubRouteChange={this.onSubRouteChange} name={this.state.user.email} blogs={blogs} /> 
               : <BlogForm onSubRouteChange={this.onSubRouteChange}/>)
           : (this.state.route === 'signin'
