@@ -1,0 +1,17 @@
+.defaultBorder {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.gap {
+    margin: 12px;
+}
+
+.card {
+    transition: all 0.7s linear;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
