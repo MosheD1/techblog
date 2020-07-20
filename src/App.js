@@ -7,29 +7,16 @@ import MainPage from './Components/MainPage/MainPage';
 
 import './App.css';
 
-const blogs = [
-  {
-    title: 'The new world'
-  },
-  {
-    title: 'The new dicovery'
-  },
-  {
-    title: 'The idea'
-  },
-  {
-    title: 'What Next'
-  },
-  {
-    title: 'In 10 Years'
-  }
-];
-
 const initialState = {
   route: 'signin',
   subRoute: 'mainPage',
+  blogs: [],
+  isSignedIn: false, 
   user: {
-    email: ''
+    id: '',
+    email: '',
+    name: '',
+    joined: ''
   }
 }
 
@@ -41,12 +28,24 @@ class App extends Component {
   }
 
   loadUser = (userData) => {
-    this.setState({user: {
-      email: userData.signinEmail
-    }});
+    this.setState({
+        user: {
+          id: userData.id,
+          email: userData.email,
+          name: userData.name,
+          joined: userData.joined
+        }
+    });
   }
 
   onRouteChange = (route) => {
+    if(route === 'home') {
+      this.setState({isSignedIn: true});
+      this.requestBlogs();
+    }
+    else {
+      this.setState({isSignedIn: false});
+    }
     this.setState({route: route});
   }
 
@@ -54,17 +53,25 @@ class App extends Component {
     this.setState({subRoute: subRoute});
   }
 
+  requestBlogs = () => {
+    fetch(`http://localhost:3001/blog/${this.state.user.id}`)
+    .then(response => response.json())
+    .then(userBlogs => {
+      this.setState({blogs: userBlogs});
+    });
+  }
+
   render() {
     return (
       <div>
-        <Navigation onRouteChange={this.onRouteChange}/>
+        <Navigation route={this.state.route} onRouteChange={this.onRouteChange}/>
         {this.state.route === 'home'
           ? (this.state.subRoute === 'mainPage' 
-              ? <MainPage onSubRouteChange={this.onSubRouteChange} name={this.state.user.email} blogs={blogs} /> 
-              : <BlogForm onSubRouteChange={this.onSubRouteChange}/>)
+              ? <MainPage onSubRouteChange={this.onSubRouteChange} name={this.state.user.name} blogs={this.state.blogs} /> 
+              : <BlogForm requestBlogs={this.requestBlogs} userName={this.state.user.name} userId={this.state.user.id} onSubRouteChange={this.onSubRouteChange}/>)
           : (this.state.route === 'signin'
               ? <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
-              : <Register onRouteChange={this.onRouteChange}/> 
+              : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser}/> 
             )
         }
       </div>

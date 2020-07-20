@@ -23,6 +23,27 @@ class Register extends Component {
         this.setState({registerPassword: e.target.value});
     }
 
+    onSubmitRegister = () => {
+        fetch('http://localhost:3001/register', {
+            method: 'post',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+                email: this.state.registerEmail,
+                name: this.state.registerName,
+                password: this.state.registerPassword
+            })
+        })
+        .then(response => response.json())
+        .then(user => {
+            if(user.id) {
+                this.props.loadUser(user);
+                this.props.onRouteChange('home');
+            }
+        });
+    }
+
     render() {
         return(
             <main>
@@ -39,10 +60,10 @@ class Register extends Component {
                         </div>
                         <div className='widget'>
                             <label>Password</label>
-                            <input onChange={this.state.onPasswordChange} type='text'></input>
+                            <input onChange={this.onPasswordChange} type='text'></input>
                         </div>
                     </fieldset>
-                    <input onClick={() => this.props.onRouteChange('home')} type='submit' value='Register'></input>
+                    <input onClick={this.onSubmitRegister} type='submit' value='Register'></input>
                 </div>
         </main>
         );
